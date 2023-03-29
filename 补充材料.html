@@ -1,0 +1,685 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>Readme</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='梯度多晶的建模以二维为例'><span>梯度多晶的建模(以二维为例)</span></h1><p><span>		</span><span>大家好, 今天为大家带来二维梯度多晶的建模教程, 废话不多说, 首先上结果图:</span></p><p><img src="./picture/梯度多晶.png" referrerpolicy="no-referrer"></p><h2 id='数学推导和编程思路'><span>数学推导和编程思路</span></h2><h3 id='基本思想'><span>基本思想</span></h3><p><span>		</span><span>首先呢, 上示意图, 来更好的解释一下梯度多晶的建模思路, 这张图是我从我师兄的SCI里面扣出来的, 相当于多了一次引用:</span></p><p><img src=".\picture\示意图.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>我师兄是做有限元的, 和分子动力学略有不同, 所以在a图中, hc部分的晶粒分布可以不看, 现在我们来看a图, 我们假设已经知道了整个模型在横向的尺寸为L, 我们再做一个假设, 在a图中, 每个晶粒均为正方形, 那么如何实现梯度分布呢? 从a图中, 最直观的想法就是, 如果我第一层晶粒为8个, 第二层晶粒为6个, 第三层为4个, 以此类推, 构成一个等差数组, 而考虑到整个模型的横向尺寸L是一个已知的定值, 那么第一层晶粒的尺寸d1 = L/8, d2 = L/6, d3 = L/4...... </span></p><p><span>		</span><span>那么我们会惊喜的发现, 每一层晶粒的尺寸在随着纵向坐标的增加而减少, 也就是实现了梯度的晶粒分布, 同时, 如果第一层到第二层的晶粒不是减少而是增加呢?那也是一样的算法, 也可以实现逆梯度分布.而这也是我今天想要讲述的最基础的梯度分布.</span></p><p><span>		</span><span>当然还没完, 之后我们还需要给每个晶粒的控制点加入一个扰动, 这个扰动的大小应该在(-0.5, 0.5) * dk之间, dk是第k层晶粒的尺寸. 加入之后的效果如图b所示, 这样, 我们才能生成一个比较好的随机梯度分布的多晶模型, 多晶模型如图c所示. 当然, 在分子动力学中, 我建议最好保持图c中surface和core的周期性边界条件, 因为如果像图c的种子去生成多晶, 那么模型就会非常难看. 好的, 那么基本的建模思路接受了, 接下来就是编程的环节了.</span></p><h3 id='编程思路'><span>编程思路</span></h3><p><span>		</span><span>事先声明, 本教程不针对0编程基础和零Fortran基础人员, 如果没有相关基础, 建议谨慎观看, 当然实际上下面的内容不会很难, 普通的使用Fortran的写法, 和MATLAB不会差太多, 除了没有MATLAB众多的内置函数以外.</span></p><p><span>		</span><span>这里对我的程序做一些简单的说明, 一些没有讲到的细节, 可以发邮件询问我, 当然我个人的建议是百度, 通常2分钟可以解决你的大多数问题. 首先让我们看看, 对于计算各个控制节点的位置, 需要哪些参数? 首先应该由用户设置模型的横向尺寸L, 接着, 第一层的晶粒数first也应该给出, 同时每一层应该增加或者减少的晶粒数delta也应该给出, 且delta&gt;0代表每一层的晶粒增加, delta&lt;0代表每一层的晶粒减少.同时我们将使用2个数组, 一个用来存储每一层晶粒的尺寸, 一个用来存储所有晶粒的坐标和对应层数. 同时, 在给每个晶粒施加扰动的时候, 我们想控制扰动的程度, 可以使用一个在(0, 1)的实数chaosFactor进行控制. 还有一些其他的参数, 这里我们列举出来:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">use</span> <span class="cm-variable">iso_fortran_env</span>, <span class="cm-variable">only</span><span class="cm-operator">:</span> <span class="cm-variable">stdout</span> <span class="cm-operator">=&gt;</span> <span class="cm-variable">output_unit</span>, <span class="cm-variable">wp</span> <span class="cm-operator">=&gt;</span> <span class="cm-variable">real64</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">implicit</span> <span class="cm-keyword">none</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">allocatable</span> <span class="cm-operator">::</span> <span class="cm-variable">dK</span>(<span class="cm-operator">:</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 某一层晶粒的尺寸</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">allocatable</span> <span class="cm-operator">::</span> <span class="cm-variable">coordinate</span>(<span class="cm-operator">:</span>, <span class="cm-operator">:</span>) &nbsp;<span class="cm-comment">!&lt; 含有所有控制点坐标的数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">L</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 二维模型的宽度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">xlim</span>, <span class="cm-variable">ylim</span> &nbsp; <span class="cm-comment">!&lt; 两个方向上的的坐标极限</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">chaosFactor</span> &nbsp;<span class="cm-comment">!&lt; 一个在(0, 1)之间的实数, 决定了控制点偏离平衡位置的程度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-builtin">index</span> <span class="cm-operator">=</span> <span class="cm-number">1</span> <span class="cm-comment">!&lt; 指向某一个晶粒的坐标</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">K</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 梯度晶粒的层数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">first</span> &nbsp; &nbsp;<span class="cm-comment">!&lt; 第一层晶粒数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">delta</span> &nbsp; &nbsp;<span class="cm-comment">!&lt; 每一层减少的晶粒数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">gNum</span> &nbsp; &nbsp; <span class="cm-comment">!&lt; 每一层的晶粒数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">layers</span> &nbsp; <span class="cm-comment">!&lt; 一共多少个晶粒</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">i</span>, <span class="cm-variable">j</span> &nbsp; &nbsp; <span class="cm-comment">!&lt; 循环变量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">logical</span> <span class="cm-operator">::</span> <span class="cm-variable">isAtomsk</span> <span class="cm-comment">!&lt; 判断是否写出atomsk的文件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">logical</span> <span class="cm-operator">::</span> <span class="cm-variable">isPeriod</span> <span class="cm-comment">!&lt; 是否考虑让晶粒对称周期性分布</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 369px;"></div><div class="CodeMirror-gutters" style="display: none; height: 369px;"></div></div></div></pre><p><span>		</span><span>首先我们考虑如何从用户手中读取到想要的参数, 这里我采用的Fortran中的namelist读取方法, 因为这种方法简单易行, 而且对于使用者也比较友好:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">subroutine</span> <span class="cm-variable">ReadParameter</span>(<span class="cm-variable">nmlName</span>, <span class="cm-variable">length</span>, <span class="cm-variable">gNumber</span>, <span class="cm-variable">del</span>, <span class="cm-variable">layer</span>, <span class="cm-variable">isAtom</span>, <span class="cm-variable">period</span>, <span class="cm-variable">cFactor</span>)</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">character</span><span class="cm-operator">(len=*</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-variable">nmlName</span> &nbsp; &nbsp;<span class="cm-comment">!&lt; 含有nml格式的文件的名称</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">length</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 多晶模型中的长度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">cFactor</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 一个在(0, 1)之间的实数, 决定了控制点偏离平衡位置的程度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span>, <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">gNumber</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 第一层晶粒的数量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span>, <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">del</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 每一层减少的晶粒数量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span>, <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">layer</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 一共有多少层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">logical</span>, <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">isAtom</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 是否写出atomsk格式的控制节点文件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">logical</span>, <span class="cm-keyword">intent</span>(<span class="cm-variable">out</span>) <span class="cm-operator">::</span> <span class="cm-variable">period</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 是否考虑让晶粒对称周期性分布</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">nmlID</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 文件ID通道</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">ioflag</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 看看文件读取是否成功</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">namelist</span><span class="cm-operator">/</span><span class="cm-variable">myList</span><span class="cm-operator">/</span> <span class="cm-variable">length</span>, <span class="cm-variable">gNumber</span>, <span class="cm-variable">del</span>, <span class="cm-variable">layer</span>, <span class="cm-variable">isAtom</span>, <span class="cm-variable">period</span>, <span class="cm-variable">cFactor</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">open</span><span class="cm-operator">(new</span><span class="cm-variable">unit</span><span class="cm-operator">=</span><span class="cm-variable">nmlID</span>, <span class="cm-variable">file</span><span class="cm-operator">=</span><span class="cm-variable">nmlName</span>, <span class="cm-variable">action</span><span class="cm-operator">=</span><span class="cm-string">'read'</span>) &nbsp; &nbsp;<span class="cm-comment">!! 打开文件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">read</span>(<span class="cm-variable">unit</span><span class="cm-operator">=</span><span class="cm-variable">nmlID</span>, <span class="cm-variable">nml</span><span class="cm-operator">=</span><span class="cm-variable">myList</span>, <span class="cm-variable">iostat</span><span class="cm-operator">=</span><span class="cm-variable">ioflag</span>) &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!! 按namelist方式读取</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">close</span>(<span class="cm-variable">nmlID</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 关闭文件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">!! 读取之后应该对参数进行一些基本的判断</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">del</span> <span class="cm-operator">==</span> <span class="cm-number">0</span> ) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span> , <span class="cm-string">'(A)'</span>) <span class="cm-string">'You must make variable del not equal to zero.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">stop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span> <span class="cm-keyword">if</span> (<span class="cm-variable">del</span> <span class="cm-operator">&lt;</span> <span class="cm-number">0</span> ) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> ((<span class="cm-variable">gNumber</span> <span class="cm-operator">+</span> (<span class="cm-variable">layer</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>) <span class="cm-operator">*</span> <span class="cm-variable">del</span>) <span class="cm-operator">&lt;</span> <span class="cm-number">0</span>) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span> , <span class="cm-string">'(A)'</span>) <span class="cm-operator">'Neg</span><span class="cm-variable">ative</span> <span class="cm-variable">number</span> <span class="cm-variable">of</span> <span class="cm-variable">grain</span>, <span class="cm-operator">plea</span><span class="cm-variable">se</span> <span class="cm-variable">check</span> <span class="cm-variable">your</span> <span class="cm-keyword">parameter</span><span class="cm-variable">.</span><span class="cm-string">'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">stop</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">gNumber</span> <span class="cm-operator">&lt;</span> <span class="cm-number">0.d0</span>) <span class="cm-keyword">stop</span> <span class="cm-string">'Please give parameter gNumer a positive number.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-operator">(len</span><span class="cm-variable">gth</span> <span class="cm-operator">&lt;</span> <span class="cm-number">0.0d0</span>) <span class="cm-keyword">stop</span> <span class="cm-string">'Please give parameter length a positive number.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">cFactor</span> <span class="cm-operator">&lt;</span> <span class="cm-number">0.d0</span> <span class="cm-operator">.or.</span> <span class="cm-variable">cFactor</span> <span class="cm-operator">&gt;</span> <span class="cm-number">1.d0</span>) <span class="cm-keyword">stop</span> <span class="cm-string">'chaosFactor must between 0 and 1, please check your input.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">subroutine</span> <span class="cm-variable">ReadParameter</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 737px;"></div><div class="CodeMirror-gutters" style="display: none; height: 737px;"></div></div></div></pre><p><span>		</span><span>在Fortran中, 我们只需要把想要读取到的变量用namelist进行定义, 然后在打开了文件之后, 使用read()函数, 指明nml关键字的取值进行读取即可, 这是它的输入文件的样子, 输入文件中的变量名称和namelist名称必须和程序中的一一对应, 必须严格按照下图中的格式编写:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&amp;myList</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">length = 600.d0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">gNumber = 5</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">del = 1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">layer = 15</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">isAtom = .true.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Period = .true.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">cFactor = 0.9d0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">/</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p><span>		</span><span>读取到了参数之后, 开始做一些前期的准备工作:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">layers</span> <span class="cm-operator">=</span> <span class="cm-variable">K</span> <span class="cm-operator">*</span> <span class="cm-variable">first</span> <span class="cm-operator">+</span> (<span class="cm-variable">K</span> <span class="cm-operator">*</span> (<span class="cm-variable">K</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>)) <span class="cm-operator">/</span> <span class="cm-number">2</span> <span class="cm-operator">*</span> <span class="cm-variable">delta</span> <span class="cm-comment">!! 利用等差数列计算需要分配多少内存</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">!! layers代表本次需要计算多少个晶粒的位置</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">!! 分配内存</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">allocate</span>(<span class="cm-variable">dk</span>(<span class="cm-variable">K</span>)) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">allocate</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">layers</span>, <span class="cm-number">3</span>)) &nbsp; <span class="cm-comment">!! 有3列数据, 分别是控制节点的xy坐标, 和属于第几层的晶粒</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">!! 初始化所有晶粒尺寸为0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">dk</span> <span class="cm-operator">=</span> <span class="cm-number">0.d0</span> &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_seed</span> &nbsp;<span class="cm-comment">!! 初始化随机数种子</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p><span>		</span><span>计算完了基本参数之后, 我们回过头来看看图a, 为了方便起见, 我们从底下往上面, 逐层生成晶粒的xy坐标, 这一过程将由一个双层循环完成, 第一层循环是循环第i层, 第二层循环是计算第i层的第j个晶粒:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">K</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">gNum</span> <span class="cm-operator">=</span> <span class="cm-variable">first</span> <span class="cm-operator">+</span> (<span class="cm-variable">i</span> <span class="cm-operator">-</span> <span class="cm-number">1</span> ) <span class="cm-operator">*</span> <span class="cm-variable">delta</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!! 第 i 层的晶粒个数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">j</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">gNum</span> &nbsp; &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">dK</span>(<span class="cm-variable">i</span>) <span class="cm-operator">=</span> <span class="cm-variable">L</span> <span class="cm-operator">/</span> (<span class="cm-variable">gNum</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 计算第 i 层晶粒的尺寸</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> ( <span class="cm-variable">i</span> <span class="cm-operator">==</span> <span class="cm-number">1</span>) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">1</span>) <span class="cm-operator">=</span> (<span class="cm-number">0.5</span> <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-variable">i</span>)) <span class="cm-operator">+</span> (<span class="cm-variable">j</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-variable">i</span>) &nbsp;<span class="cm-comment">!! 计算晶粒节点的x坐标</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">2</span>) <span class="cm-operator">=</span> <span class="cm-variable">dK</span>(<span class="cm-variable">i</span>) <span class="cm-operator">*</span> <span class="cm-number">0.5d0</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 计算晶粒节点的y坐标</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">3</span>) <span class="cm-operator">=</span> <span class="cm-builtin">real</span>(<span class="cm-variable">i</span>, <span class="cm-builtin">kind</span><span class="cm-operator">=</span><span class="cm-variable">wp</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">!! 声明是第几层的晶粒, 方便后续调用</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">index</span> <span class="cm-operator">=</span> <span class="cm-builtin">index</span> <span class="cm-operator">+</span> <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">1</span>) <span class="cm-operator">=</span> (<span class="cm-number">0.5</span> <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-variable">i</span>)) <span class="cm-operator">+</span> (<span class="cm-variable">j</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-variable">i</span>) </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">2</span>) <span class="cm-operator">=</span> (<span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">1</span> <span class="cm-operator">:</span> <span class="cm-variable">i</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>)) <span class="cm-operator">+</span> <span class="cm-variable">dk</span>(<span class="cm-variable">i</span>) <span class="cm-operator">*</span> <span class="cm-number">0.5d0</span>) &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">coordinate</span>(<span class="cm-builtin">index</span>, <span class="cm-number">3</span>) <span class="cm-operator">=</span> <span class="cm-builtin">real</span>(<span class="cm-variable">i</span>, <span class="cm-builtin">kind</span><span class="cm-operator">=</span><span class="cm-variable">wp</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">index</span> <span class="cm-operator">=</span> <span class="cm-builtin">index</span> <span class="cm-operator">+</span> <span class="cm-number">1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">!! 循环结束, 此时的index - 1 也正好等于晶粒个数</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 415px;"></div><div class="CodeMirror-gutters" style="display: none; height: 415px;"></div></div></div></pre><p><span>		</span><span>上述的代码我个人认为逻辑已经非常清晰了, 同学们可以试着根据图a和上述代码推演一下循环的思路过程, 这里为了不让同学们再耗费时间往上翻, 这里重新声明一下上图双重循环代码中几个变量的含义:</span></p><p><span>		</span><span>i, j: 循环变量</span><span>		</span></p><p><span>		</span><span>gNum: 第i层晶粒的晶粒尺寸</span><span>		</span></p><p><span>		</span><span>coordinate(:, :): 一个二维数组, 行数等于晶粒数, 有3列, 前2列分别对应晶粒的xy坐标, 而第三列对应晶粒属于哪一层</span><span>			</span></p><p><span>		</span><span>dk(:): 一个一维数组, 记录了每一层晶粒的尺寸, 如dk(2)就是第二层晶粒的尺寸</span></p><p><span>		</span><span>循环结束之后, 计算模型的相关信息:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">xlim</span> <span class="cm-operator">=</span> <span class="cm-variable">L</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span> &nbsp;<span class="cm-comment">!! 计算x和y区域的上下限</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ylim</span> <span class="cm-operator">=</span> <span class="cm-number">2.d0</span> <span class="cm-operator">*</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>) <span class="cm-operator">-</span> <span class="cm-variable">dk</span>(<span class="cm-number">1</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ylim</span> <span class="cm-operator">=</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>) &nbsp; &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><p><span>		</span><span>并将相关信息输出到屏幕上面:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">!! 生成完之后将相关信息输出到屏幕上面</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'控制点生成结束, 一共生成了'</span>, <span class="cm-number">2</span><span class="cm-operator">*</span>(<span class="cm-builtin">index</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>)<span class="cm-operator">-</span><span class="cm-variable">first</span>,<span class="cm-string">'个控制节点.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'控制点生成结束, 一共生成了'</span>, <span class="cm-builtin">index</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>,<span class="cm-string">'个控制节点.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'其中第一层的控制节点个数为: '</span>, <span class="cm-variable">first</span>, <span class="cm-string">'个.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'每层变化的控制节点个数为: '</span>, <span class="cm-variable">delta</span>, <span class="cm-string">'个.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'总计生成'</span>, <span class="cm-number">2</span><span class="cm-operator">*</span><span class="cm-variable">K</span><span class="cm-operator">-</span><span class="cm-number">1</span>, <span class="cm-string">'层梯度层.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A,I0,A)'</span>) <span class="cm-string">'总计生成'</span>, <span class="cm-variable">K</span>, <span class="cm-string">'层梯度层.'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">stdout</span>, <span class="cm-string">'(A, G0, A, G0)'</span>) <span class="cm-string">'x方向上长度: '</span>, <span class="cm-variable">xlim</span>, <span class="cm-string">', y方向上长度: '</span>, <span class="cm-variable">ylim</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 369px;"></div><div class="CodeMirror-gutters" style="display: none; height: 369px;"></div></div></div></pre><p><span>		</span><span>isPeriod是一个逻辑变量, 取决于用户的输入, 可以决定是否生成周期性的梯度晶粒分布, 这里我们暂且按下不表, 来测试一下相关代码的结果, MATLAB中提供了一个voronoi函数, 可以根据控制节点直接绘制taylor多边形. 首先测试输入如下:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&amp;myList</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">length = 500.d0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">gNumber = 5</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">del = 3</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">layer = 10</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">isAtom = .false.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Period = .false.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">cFactor = 0.9d0</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">/</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p><span>		</span><span>屏幕上面的输出结果是:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5191px; left: 7.98611px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">控制点生成结束, 一共生成了290个控制节点.</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">其中第一层的控制节点个数为: 5个.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">每层变化的控制节点个数为: 1个.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">总计生成20层梯度层.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">x方向上长度: 500.00000000000000, y方向上长度: 846.31242221008688</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>		</span><span>使用gnuplot绘图结果:</span></p><p><img src="./picture/gradient.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>看起来还不错, 但是有同学可能就发现了, 为什么分布的这么均匀? 没有随机性呀? 是的, 因为我们的代码还没有把随机数相关的内容写进去, 这里是展示一下中间结果, 接下来我们将引入扰动值, 以便于生成梯度多晶, 通过子程序WriteData实现:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">subroutine</span> <span class="cm-variable">WriteData</span>(<span class="cm-keyword">array</span>, <span class="cm-variable">dataname</span>)</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">!! 将计算出来的结果写入文件中方便MATLAB用来绘图</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-keyword">array</span>(<span class="cm-operator">:</span>, <span class="cm-operator">:</span>) &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 包含所有控制节点坐标的数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">character</span><span class="cm-operator">(len=*</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-variable">dataname</span> <span class="cm-comment">!&lt; 写出去的数据文件的名称</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">chaosx</span> &nbsp; <span class="cm-comment">!&lt; 晶粒的扰动, 在x方向上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">chaosy</span> &nbsp; <span class="cm-comment">!&lt; 晶粒的扰动, 在y方向上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">dataID</span> <span class="cm-comment">!&lt; data文件的通道ID &nbsp; &nbsp; &nbsp; &nbsp; </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">x</span>, <span class="cm-variable">y</span> &nbsp; <span class="cm-comment">!&lt; 循环变量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">ndim</span> &nbsp; <span class="cm-comment">!&lt; 晶粒的个数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">grainNum</span> &nbsp; <span class="cm-comment">!&lt; 每一层的晶粒个数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-builtin">floor</span> &nbsp;<span class="cm-comment">!&lt; 第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ndim</span> <span class="cm-operator">=</span> <span class="cm-variable">size</span>(<span class="cm-keyword">array</span>, <span class="cm-builtin">dim</span><span class="cm-operator">=</span><span class="cm-number">1</span>) &nbsp; <span class="cm-comment">!! 获取第一个维度的尺寸</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">open</span><span class="cm-operator">(new</span><span class="cm-variable">unit</span><span class="cm-operator">=</span><span class="cm-variable">dataID</span>, <span class="cm-variable">file</span><span class="cm-operator">=</span><span class="cm-variable">dataname</span>, <span class="cm-variable">action</span><span class="cm-operator">=</span><span class="cm-string">'write'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span> &nbsp;<span class="cm-comment">!! 如果要求周期性的晶粒分布</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">ndim</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>)) &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 查询第x个晶粒是第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! chaosFactor是扰动因子, 越小说明晶粒扰动越小</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">dataID</span>, <span class="cm-operator">*</span>) <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span> <span class="cm-operator">+</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">2</span><span class="cm-operator">:</span><span class="cm-variable">K</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">first</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>, <span class="cm-builtin">index</span> <span class="cm-operator">-</span> <span class="cm-number">1</span> &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 将相关的晶粒输出一遍</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! chaosFactor是扰动因子, 越小说明晶粒扰动越小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">dataID</span>, <span class="cm-operator">*</span>) <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-number">2.d0</span> <span class="cm-operator">*</span> <span class="cm-variable">coordinate</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>) <span class="cm-operator">-</span> <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span> <span class="cm-operator">+</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">2</span><span class="cm-operator">:</span><span class="cm-variable">K</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">ndim</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>)) &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 查询第x个晶粒是第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">dataID</span>, <span class="cm-operator">*</span>) <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">close</span>(<span class="cm-variable">dataID</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">subroutine</span> <span class="cm-variable">WriteData</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1036px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1036px;"></div></div></div></pre><p><span>		</span><span>上述代码有些冗长, 我们先来看看随机扰动部分, 首先来看到else里面的do循环, 这个循环中, ndim为晶粒的数量, random_numer为Fortran的内置一个伪随机数生成器, 可以生成一个(0, 1)之间的均匀分布的随机数, 这里我们在生成完之后马上减去0.5, 以使得其范围落在(-0.5, 0.5)之间, 同时再乘以对应层数的晶粒尺寸, 再乘以一个扰动系数chaosFactor, 这样我们就可以控制晶粒节点的扰动不会超过晶粒尺寸的正负一半. 加上了随机扰动之后, 我们来看看控制节点的分布:</span></p><p><img src="./picture/gradient2.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>目前似乎看不出什么, 别着急, 这里我们把节点坐标的文件导入MATLAB, 使用voronoi函数进行调用, 假设含有控制节点位置的文件名为seed.txt, 首先使用seeds = importdata(&#39;seed.txt&#39;)进行导入, 接着使用voronoi(seeds(:,1),seeds(:,2))进行绘图, 绘图结果如下:</span></p><p><img src="./picture/gradient3.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>可以看到, 还算是勉强取得了令人满意的效果. 但是不要忘记了, 我们最终是要生成控制节点坐标, 输入到atomsk里面, 生成二维的梯度多晶的模型, 而atomsk在生成梯度多晶的时候有一个问题, 默认xyz方向都是周期性边界条件, 如果采用上图的种子文件去生成多晶模型, 那么底部的大晶粒和顶部的小晶粒的连接部分就会非常尖锐, 甚至生成失败. 所以为了生成可用的多晶种子文件, 我们还需要进行一次修改.如下是我们的修改思路:</span></p><p><img src="./picture/period.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>首先, 我们假设第一层晶粒的y坐标为y1, 而第k层的晶粒y坐标为yk, 现在, 我们为了保证周期性, 我们需要把所有在y = y1以上的晶粒沿着y = y1这个对称轴对称过去, 根据简单的几何学知识, 假设yk对称过去的坐标是yk1, 而yk1 = 2 * y1 - yk. 而x坐标呢? x坐标是不变的, 那么只需要一个小小的循环, 我们就可以轻松的把对称的晶粒坐标求出并写入到文件中:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span> &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">first</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>, <span class="cm-builtin">index</span> <span class="cm-operator">-</span> <span class="cm-number">1</span> &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 将相关的晶粒输出一遍</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! chaosFactor是扰动因子, 越小说明晶粒扰动越小</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">dataID</span>, <span class="cm-operator">*</span>) <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-number">2.d0</span> <span class="cm-operator">*</span> <span class="cm-variable">coordinate</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>) <span class="cm-operator">-</span> <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span> <span class="cm-operator">+</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">2</span><span class="cm-operator">:</span><span class="cm-variable">K</span>))</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 207px;"></div><div class="CodeMirror-gutters" style="display: none; height: 207px;"></div></div></div></pre><p><span>		</span><span>上述代码在WriteData这个子程序中出现过一次, 而再次出现在这里, 想必同学们更能理解其含义了, 第一层共有first个晶粒, 而第一层的晶粒无需对称过去, 所以从第first + 1 个晶粒开始循环, 而index - 1则是总晶粒数. 之后便是常规的添加扰动, 写入文件了. 现在我们把上面用的的含有输入参数的文件中的period改为true之后, 来看看修改之后的结果:</span></p><p><img src="./picture/gradient4.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>好, 看起来非常不错了, 现在我们把它导入到atomsk里面生成多晶模型, 这个时候你发现不对劲了, atomsk需要提前定义盒子的xyz的长度, 且默认xyz均大于0, 但是现在我们的多晶模型居然有相当一部分的晶粒控制节点的y坐标是小于0的. 那么怎么办呢? 通过仔细观察上图和上上图, 我们发现, 比起单向梯度多晶模型, 周期性梯度多晶模型中多了layer - 1层的晶粒, 其中layer为单向梯度多晶模型的层数, 而这对称过去的layer - 1层的晶粒, 会导致整个模型的长度比起单向梯度多晶模型多了sum(dk(2 : layer - 1))的长度, 那么, 我们是不是只需要把模型向上平移这么多长度? 即每个晶粒的y坐标都加上这么个东西, 问题是不是就解决了呢? 我们来尝试一下:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">xlim</span> <span class="cm-operator">=</span> <span class="cm-variable">L</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span> &nbsp;<span class="cm-comment">!! 计算x和y区域的上下限</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ylim</span> <span class="cm-operator">=</span> <span class="cm-number">2.d0</span> <span class="cm-operator">*</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>) <span class="cm-operator">-</span> <span class="cm-variable">dk</span>(<span class="cm-number">1</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">else</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ylim</span> <span class="cm-operator">=</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>) &nbsp; &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><p><span>		</span><span>加入上述语句之后, 重新生成模型</span></p><p><img src="./picture/gradient5.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>好, 非常完美, 那么现在这个东西, 是不是就可以用于生成atomsk的晶粒种子文件了? 答案是还差一点点, 因为atomsk的种子文件和我们现在导出的文本文件还是差了一些格式, 现在我们重新编写一个用于导出atomsk可以识别的种子文件的子程序:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="fortran" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="fortran"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">subroutine</span> <span class="cm-variable">WriteAtomsk</span>(<span class="cm-keyword">array</span>, <span class="cm-variable">modelname</span>, <span class="cm-variable">xdim</span>, <span class="cm-variable">ydim</span>)</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">!! 以atomsk可以读取的格式写入文本文件之中</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-keyword">array</span>(<span class="cm-operator">:</span>, <span class="cm-operator">:</span>) &nbsp; &nbsp; &nbsp; <span class="cm-comment">!&lt; 包含所有控制节点坐标的数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-variable">xdim</span>, <span class="cm-variable">ydim</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!&lt; 仿真盒子在xy方向上的长度</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">character</span><span class="cm-operator">(len=*</span>), <span class="cm-keyword">intent</span>(<span class="cm-variable">in</span>) <span class="cm-operator">::</span> <span class="cm-variable">modelname</span> <span class="cm-comment">!&lt; 写出去的数据文件的名称</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">chaosx</span> &nbsp; <span class="cm-comment">!&lt; 晶粒的扰动, 在x方向上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">real</span>(<span class="cm-variable">wp</span>) <span class="cm-operator">::</span> <span class="cm-variable">chaosy</span> &nbsp; <span class="cm-comment">!&lt; 晶粒的扰动, 在y方向上</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">modelID</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">x</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-variable">ndim</span> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">integer</span> <span class="cm-operator">::</span> <span class="cm-builtin">floor</span> &nbsp;<span class="cm-comment">!&lt; 第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ndim</span> <span class="cm-operator">=</span> <span class="cm-variable">size</span>(<span class="cm-keyword">array</span>, <span class="cm-builtin">dim</span><span class="cm-operator">=</span><span class="cm-number">1</span>) &nbsp; <span class="cm-comment">!! 获取第一个维度的尺寸</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">open</span><span class="cm-operator">(new</span><span class="cm-variable">unit</span><span class="cm-operator">=</span><span class="cm-variable">modelID</span>, <span class="cm-variable">file</span><span class="cm-operator">=</span><span class="cm-variable">modelname</span>, <span class="cm-variable">action</span><span class="cm-operator">=</span><span class="cm-string">'write'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">modelID</span>, <span class="cm-operator">*</span>) <span class="cm-string">'box'</span>, <span class="cm-variable">xdim</span>, <span class="cm-variable">ydim</span>, <span class="cm-number">0.d0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">isPeriod</span>) <span class="cm-keyword">then</span> &nbsp;<span class="cm-comment">!! 如果要求周期性的晶粒分布</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">ndim</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>)) &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 查询第x个晶粒是第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 0.95是扰动因子, 越小说明晶粒扰动越小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">modelID</span>, <span class="cm-operator">*</span>) <span class="cm-string">'node'</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span> <span class="cm-operator">+</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">2</span><span class="cm-operator">:</span><span class="cm-variable">K</span>)), <span class="cm-number">0.d0</span>, <span class="cm-string">'random'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-variable">first</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>, <span class="cm-builtin">index</span> <span class="cm-operator">-</span> <span class="cm-number">1</span> &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 将相关的晶粒输出一遍</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>)) &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 查询第x个晶粒是第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 0.95是扰动因子, 越小说明晶粒扰动越小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">modelID</span>, <span class="cm-operator">*</span>) <span class="cm-string">'node'</span>, <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-number">2.d0</span> <span class="cm-operator">*</span> <span class="cm-variable">coordinate</span>(<span class="cm-number">1</span>, <span class="cm-number">2</span>) <span class="cm-operator">-</span> <span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">&amp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span> <span class="cm-operator">+</span> <span class="cm-builtin">sum</span>(<span class="cm-variable">dK</span>(<span class="cm-number">2</span><span class="cm-operator">:</span><span class="cm-variable">K</span>)), <span class="cm-number">0.d0</span>, <span class="cm-string">'random'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>, <span class="cm-variable">ndim</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">floor</span> <span class="cm-operator">=</span> <span class="cm-builtin">nint</span>(<span class="cm-variable">coordinate</span>(<span class="cm-variable">x</span>, <span class="cm-number">3</span>)) &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 查询第x个晶粒是第几层</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosx</span>) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">!! 生成一个(0, 1)之间的随机数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">call</span> <span class="cm-operator">rando</span><span class="cm-variable">m_number</span>(<span class="cm-variable">chaosy</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosx</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosx</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 保证扰动在正负的晶粒尺寸一半以内</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">chaosy</span> <span class="cm-operator">=</span> (<span class="cm-variable">chaosy</span> <span class="cm-operator">-</span> <span class="cm-number">0.5d0</span>) <span class="cm-operator">*</span> <span class="cm-variable">dK</span>(<span class="cm-builtin">floor</span>) <span class="cm-operator">*</span> <span class="cm-variable">chaosFactor</span> &nbsp; &nbsp; <span class="cm-comment">!! 0.95是扰动因子, 越小说明晶粒扰动越小</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">write</span>(<span class="cm-variable">modelID</span>, <span class="cm-operator">*</span>) <span class="cm-string">'node'</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">1</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosx</span>, <span class="cm-keyword">array</span>(<span class="cm-variable">x</span>, <span class="cm-number">2</span>) <span class="cm-operator">+</span> <span class="cm-variable">chaosy</span>, <span class="cm-number">0.d0</span>, <span class="cm-string">'random'</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">do</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">if</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">close</span>(<span class="cm-variable">modelID</span>)</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">end</span> <span class="cm-keyword">subroutine</span> <span class="cm-variable">WriteAtomsk</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1036px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1036px;"></div></div></div></pre><p><span>		</span><span>现在我们假设晶粒文件名字叫做gradient.txt, 而我们将使用Al原子来建立二维多晶模型.模型文件名称为al.lmp, 在安装了ATOMSK的电脑上面输入:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="shell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">atomsk <span class="cm-attribute">--polycrystal</span> al.lmp gradient.txt final.cfg</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span> </span><span>		</span><span>在ovito中查看我们生成的多晶, 这里我们把晶界原子变成蓝色, 这样看起来更明显一些:</span></p><p><img src="./picture/test.png" referrerpolicy="no-referrer"></p><p><span>		</span><span>好的, 非常完美, 现在你已经拥有了一个可以用于生成二维梯度多晶的程序并且已经完全理解且运作的过程了!</span></p><p>&nbsp;</p><h1 id='拓展思考'><span>拓展思考</span></h1><p><span>		</span><span>当然, 这个小程序还存在很多的不足, 还有很多可以拓展的空间, 这个程序是我匆忙之间写的, 还可以有很多的优化空间让程序速度更快和更优雅, 此外, 还有很多方向可以进行提高和改善, 比如:</span></p><ol><li><p><span>此程序需要用户输入模型的横向长度L, 第一层晶粒数, 每一层变化晶粒数, 我们会发现另一个方向的长度是用户无法定义的, 这个对于一些用户来说, 可能是比较棘手和麻烦的一件事情. 我们可以这样改善:</span></p><p><span>我们不再假设初始散点的时候每个晶粒都是正方形, 而是长方形, 长度和宽度独立, 宽度可以依然按照上述方法进行计算, 而长度需要用户给出计算方法, 比如等比数列, 比如我想要一个800 x 600的梯度多晶模型, 600为宽度, 按照上述方法计算, 800为长度, 假设有4层梯度, 每层的长度是下一层长度的1.2倍, 那么根据等比数列求和公式, 可以很轻易的求出每一层晶粒的长度, 这样, 我们便可以按照套路计算出所有晶粒的xy坐标.</span></p></li><li><p><span>二维多晶模型的应用范围有限, 如果把上述算法思想推广到三维, 那么可以极大的提升其应用价值, 这里我先抛砖引玉, 说一下我的一个想法:</span></p><p><span>首先用户需要制定xy方向的晶粒个数, 以及梯度层数, 以及xy方向的晶粒变化数, 以及xy方向2个方向上的尺度, 假设初始散点时, 晶粒为长方体.  比如我们定义第一层xy均为2个晶粒, 每一层的xy晶粒数加一, xy长度为200 x 200, 那么第一层的晶粒就是2 x 2 = 4晶粒, 晶粒在xy方向上的尺寸为200/2 = 100, z尺寸假设等于x, 第二层的晶粒就是3 x 3 = 9晶粒, 晶粒在xy方向上的尺寸为200/2 = 66.6667, z坐标同理, 以此类推, 实现三维的梯度晶粒分布, 至于给xyz加一个随机扰动, 这个是小问题, 就交给读者们自行思考了.</span></p><p>&nbsp;</p></li></ol></div></div>
+</body>
+</html>

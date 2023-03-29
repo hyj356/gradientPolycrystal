@@ -1,0 +1,9 @@
+&myList
+length = 500.d0		! 晶粒长度
+gNumber = 5			! 第一层晶粒个数
+del = 1				! 每一层的晶粒变化个数
+layer = 20			! 一个多少个晶粒层
+isAtom = .false.	! 是否写出ATOMSK格式的文件
+Period = .false.	! 是否让晶粒周期性分布
+cFactor = 0.9d0		! 扰动因子的大小, 越小偏离平衡位置越小
+/
